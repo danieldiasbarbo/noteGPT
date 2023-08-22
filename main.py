@@ -37,8 +37,9 @@ def read_nota(nota_id: int):
 
 @app.post("/checklist")
 def create_checklist(lista: str):
-    print(lista)
-    return 200
+    lista_json = json.loads(lista)
+    checks.append(lista_json["itens"])
+    return 201
 
 @app.get("/checklist/{check_id}")
 def read_checklist(check_id: int):
